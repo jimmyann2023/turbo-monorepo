@@ -1,3 +1,10 @@
 packages:
   - "apps/*"
   - "packages/*"
+  - packages/@core/base/*
+  - packages/@core/ui-kit/*
+  - packages/@core/forward/*
+  - packages/@core/*
+  - apps/*
+  - scripts/*
+  - docs
