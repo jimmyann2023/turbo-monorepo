@@ -1,4 +1,5 @@
 packages:
+  - internal/*
   - "apps/*"
   - "packages/*"
   - packages/@core/base/*
@@ -8,3 +9,18 @@ packages:
   - apps/*
   - scripts/*
   - docs
+catalog:
+  '@types/node': ^22.10.1
+  '@vue/shared': ^3.5.13
+  '@vueuse/core': ^12.0.0
+  defu: ^6.1.4
+  rimraf: ^6.0.1
+  rollup: ^4.28.1
+  turbo: ^2.3.3
+  typescript: 5.6.3
+  unbuild: ^3.0.0-rc.11
+  vite: ^6.0.3
+  vitest: ^2.1.8
+  vue: ^3.5.13
+  vue-router: ^4.5.0
+  vue-tsc: ^2.1.10

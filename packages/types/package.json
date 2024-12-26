@@ -1,0 +1,11 @@
+{
+  "name": "@repo/types",
+  "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
+  "dependencies": {
+    "@repo-core/typings": "workspace:*",
+    "vue": "catalog:",
+    "vue-router": "catalog:"
+  }
+}
