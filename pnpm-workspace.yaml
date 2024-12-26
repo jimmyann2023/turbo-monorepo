@@ -1,7 +1,6 @@
 packages:
   - internal/*
   - internal/lint-configs/*
-  - "apps/*"
   - "packages/*"
   - packages/@core/base/*
   - packages/@core/ui-kit/*
@@ -11,42 +10,9 @@ packages:
   - scripts/*
   - docs
 catalog:
-  '@eslint/js': ^9.16.0
-  '@types/eslint': ^9.6.1
-  '@types/node': ^22.10.1
-  '@typescript-eslint/eslint-plugin': ^8.18.0
-  '@typescript-eslint/parser': ^8.18.0
   '@vue/shared': ^3.5.13
   '@vueuse/core': ^12.0.0
   defu: ^6.1.4
-  eslint: ^9.16.0
-  eslint-config-turbo: ^2.3.3
-  eslint-plugin-command: ^0.2.6
-  eslint-plugin-eslint-comments: ^3.2.0
-  eslint-plugin-import-x: ^4.5.0
-  eslint-plugin-jsdoc: ^50.6.1
-  eslint-plugin-jsonc: ^2.18.2
-  eslint-plugin-n: ^17.15.0
-  eslint-plugin-no-only-tests: ^3.3.0
-  eslint-plugin-perfectionist: ^3.9.1
-  eslint-plugin-prettier: ^5.2.1
-  eslint-plugin-regexp: ^2.7.0
-  eslint-plugin-unicorn: ^56.0.1
-  eslint-plugin-unused-imports: ^4.1.4
-  eslint-plugin-vitest: ^0.5.4
-  eslint-plugin-vue: ^9.32.0
-  globals: ^15.13.0
-  jsonc-eslint-parser: ^2.4.0
-  prettier: ^3.4.2
-  prettier-plugin-tailwindcss: ^0.6.9
-  rimraf: ^6.0.1
-  rollup: ^4.28.1
-  turbo: ^2.3.3
-  typescript: 5.6.3
-  unbuild: ^3.0.0-rc.11
   vite: ^6.0.3
-  vitest: ^2.1.8
-  vue: ^3.5.13
-  vue-eslint-parser: ^9.4.3
+  vue: "^3.5.13"
   vue-router: ^4.5.0
-  vue-tsc: ^2.1.10
