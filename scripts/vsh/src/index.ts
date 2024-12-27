@@ -2,8 +2,11 @@ import { colors, consola } from '@repo/node-utils';
 
 import { cac } from 'cac';
 
+import { defineCheckCircularCommand } from './check-circular';
+import { defineDepcheckCommand } from './check-dep';
+import { defineCodeWorkspaceCommand } from './code-workspace';
 import { defineLintCommand } from './lint';
-// import { definePubLintCommand } from './publint';
+import { definePubLintCommand } from './publint';
 
 try {
   const vsh = cac('vsh');
@@ -12,7 +15,16 @@ try {
   defineLintCommand(vsh);
 
   // vsh publint
-  // definePubLintCommand(vsh);
+  definePubLintCommand(vsh);
+
+  // vsh code-workspace
+  defineCodeWorkspaceCommand(vsh);
+
+  // vsh check-circular
+  defineCheckCircularCommand(vsh);
+
+  // vsh check-dep
+  defineDepcheckCommand(vsh);
 
   // Invalid command
   vsh.on('command:*', () => {
