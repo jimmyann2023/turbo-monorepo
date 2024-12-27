@@ -1,35 +1,17 @@
-import type { Preferences } from './types';
+import type { Preferences } from '@repo-core/preferences';
+import type { DeepPartial } from '@repo-core/typings';
 
-import { preferencesManager } from './preferences';
+/**
+ * 如果你想所有的app都使用相同的默认偏好设置，你可以在这里定义
+ * 而不是去修改 @repo-core/preferences 中的默认偏好设置
+ * @param preferences
+ * @returns
+ */
 
-// 偏好设置（带有层级关系）
-const preferences: Preferences =
-  preferencesManager.getPreferences.apply(preferencesManager);
+function defineOverridesPreferences(preferences: DeepPartial<Preferences>) {
+  return preferences;
+}
 
-// 更新偏好设置
-const updatePreferences =
-  preferencesManager.updatePreferences.bind(preferencesManager);
+export { defineOverridesPreferences };
 
-// 重置偏好设置
-const resetPreferences =
-  preferencesManager.resetPreferences.bind(preferencesManager);
-
-const clearPreferencesCache =
-  preferencesManager.clearCache.bind(preferencesManager);
-
-// 初始化偏好设置
-const initPreferences =
-  preferencesManager.initPreferences.bind(preferencesManager);
-
-export {
-  clearPreferencesCache,
-  initPreferences,
-  preferences,
-  preferencesManager,
-  resetPreferences,
-  updatePreferences,
-};
-
-export * from './constants';
-export type * from './types';
-export * from './use-preferences';
+export * from '@repo-core/preferences';

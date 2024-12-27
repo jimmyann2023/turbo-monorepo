@@ -1,27 +1,19 @@
 {
-  "name": "@repo-core/preferences",
+  "name": "@repo/preferences",
   "version": "1.0.0",
   "license": "MIT",
   "type": "module",
-  "scripts": {
-    "#build": "pnpm unbuild"
-  },
-  "files": [
-    "dist",
-    "src"
+  "sideEffects": [
+    "**/*.css"
   ],
   "exports": {
     ".": {
       "types": "./src/index.ts",
-      "development": "./src/index.ts",
-      "default": "./src/index.ts",
-      "#default": "./dist/index.mjs"
+      "default": "./src/index.ts"
     }
   },
   "dependencies": {
-    "@repo-core/shared": "workspace:*",
-    "@repo-core/typings": "workspace:*",
-    "@vueuse/core": "catalog:",
-    "vue": "^3.5.13"
+    "@repo-core/preferences": "workspace:*",
+    "@repo-core/typings": "workspace:*"
   }
 }

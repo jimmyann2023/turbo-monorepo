@@ -1,6 +1,8 @@
 {
   "name": "@repo-core/shared",
   "version": "1.0.0",
+  "license": "MIT",
+  "type": "module",
   "scripts": {
     "build": "pnpm unbuild",
     "stub": "pnpm unbuild --stub"
