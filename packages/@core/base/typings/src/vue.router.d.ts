@@ -1,5 +1,8 @@
-interface RouteMeta {}
-
-export type {
-  RouteMeta
+interface RouteMeta {
+  /**
+   * 标题名称
+   */
+  title: string;
 }
+
+export type { RouteMeta };

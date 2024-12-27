@@ -4,6 +4,7 @@ import { diff } from '@repo-core/shared/utils';
 
 import { preferencesManager } from './preferences';
 import { isDarkTheme } from './update-css-variables';
+
 function usePreferences() {
   const preferences = preferencesManager.getPreferences();
   const initialPreferences = preferencesManager.getInitialPreferences();
@@ -38,16 +39,16 @@ function usePreferences() {
     return isDark.value ? 'dark' : 'light';
   });
 
-  return{
-    preferences,
-    initialPreferences,
-    diffPreference,
+  return {
     appPreferences,
+    diffPreference,
+    initialPreferences,
     isDark,
-    locale,
     isMobile,
+    locale,
+    preferences,
     theme,
-  }
+  };
 }
 
 export { usePreferences };

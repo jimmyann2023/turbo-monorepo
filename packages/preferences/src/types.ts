@@ -1,21 +1,25 @@
-import type { DeepPartial, ThemeModeType, BuiltinThemeType } from "@repo-core/typings";
+import type {
+  BuiltinThemeType,
+  DeepPartial,
+  ThemeModeType,
+} from '@repo-core/typings';
 
 type SupportedLanguagesType = 'en-US' | 'zh-CN';
 
-interface AppPreferences{
-  /** 应用名 */
-  name: string;
+interface AppPreferences {
   /** 是否开启灰色模式 */
   colorGrayMode: boolean;
   /** 是否开启色弱模式 */
   colorWeakMode: boolean;
-  /** 支持的语言 */
-  locale: SupportedLanguagesType;
   /** 是否移动端 */
   isMobile: boolean;
+  /** 支持的语言 */
+  locale: SupportedLanguagesType;
+  /** 应用名 */
+  name: string;
 }
 
-interface ThemePreferences{
+interface ThemePreferences {
   /** 内置主题名 */
   builtinType: BuiltinThemeType;
   /** 错误色 */
@@ -46,15 +50,15 @@ interface Preferences {
 
 type PreferencesKeys = keyof Preferences;
 
-interface InitialOptions{
-  namespace:string;
-  overrides?: DeepPartial<Preferences>
+interface InitialOptions {
+  namespace: string;
+  overrides?: DeepPartial<Preferences>;
 }
 
-export type{
+export type {
   AppPreferences,
+  InitialOptions,
   Preferences,
   PreferencesKeys,
-  InitialOptions,
   ThemePreferences,
-}
+};

@@ -15,9 +15,9 @@ class StorageManager {
   private storage: Storage;
 
   constructor({
-              prefix = '',
-              storageType = 'localStorage',
-            }: StorageManagerOptions = {}) {
+    prefix = '',
+    storageType = 'localStorage',
+  }: StorageManagerOptions = {}) {
     this.prefix = prefix;
     this.storage =
       storageType === 'localStorage'

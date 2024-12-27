@@ -1,11 +1,11 @@
 {
   "name": "@repo-core/preferences",
   "version": "1.0.0",
+  "license": "MIT",
   "type": "module",
   "scripts": {
     "#build": "pnpm unbuild"
   },
-  "license": "MIT",
   "files": [
     "dist",
     "src"

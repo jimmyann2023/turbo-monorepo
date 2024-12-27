@@ -20,4 +20,4 @@ type BuiltinThemeType =
   | 'zinc'
   | (Record<never, never> & string);
 
-export type { ThemeModeType, BuiltinThemeType };
+export type { BuiltinThemeType, ThemeModeType };

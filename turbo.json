@@ -8,7 +8,7 @@
   "globalEnv": ["NODE_ENV"],
   "tasks": {
     "build": {
-      "outputs": ["dist/**","dist.zip"],
+      "outputs": ["dist/**", "dist.zip"],
       "dependsOn": ["^build"]
     },
     "test": {

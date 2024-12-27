@@ -1,25 +1,25 @@
-import type {Preferences} from "./types";
-import {BUILT_IN_THEME_PRESETS} from "./constants";
+import type { Preferences } from './types';
 
+import { BUILT_IN_THEME_PRESETS } from './constants';
 
 /**
  * 更新主题的 CSS 变量以及其他 CSS 变量
  * @param preferences - 当前偏好设置对象，它的主题值将被用来设置文档的主题。
  */
-function updateCSSVariables(preferences:Preferences) {
-  const root = document.documentElement
-  if(!root) {
+function updateCSSVariables(preferences: Preferences) {
+  const root = document.documentElement;
+  if (!root) {
     return;
   }
 
-  const theme = preferences?.theme?? {};
+  const theme = preferences?.theme ?? {};
 
-  const { builtinType,mode ,radius} = theme;
+  const { builtinType, mode, radius } = theme;
 
   // html 设置 dark 类
-  if(Reflect.has(theme, 'mode')) {
+  if (Reflect.has(theme, 'mode')) {
     const dark = isDarkTheme(mode);
-    root.classList.toggle('dark',dark);
+    root.classList.toggle('dark', dark);
   }
 
   // html 设置 data-theme=[builtinType]
@@ -64,25 +64,22 @@ function updateCSSVariables(preferences:Preferences) {
   }
 }
 
-
 /**
  * 更新主要的 CSS 变量
  * @param  preference - 当前偏好设置对象，它的颜色值将被转换成 HSL 格式并设置为 CSS 变量。
  */
 function updateMainColorVariables(preference: Preferences) {
   if (!preference.theme) {
-    return;
+    // TODO: 待完善
   }
-  // TODO: 待完善
 }
 
-
-function isDarkTheme(theme:string){
-  let dark=theme==="dark";
-  if(theme=='auto'){
+function isDarkTheme(theme: string) {
+  let dark = theme === 'dark';
+  if (theme === 'auto') {
     dark = window.matchMedia('(prefers-color-scheme: dark)').matches;
   }
-  return dark
+  return dark;
 }
 
 export { isDarkTheme, updateCSSVariables };

@@ -1,14 +1,14 @@
-import type { Preferences } from "./types";
+import type { Preferences } from './types';
 
 const defaultPreferences: Preferences = {
-  app:{
-    name:"cloud system",
+  app: {
     colorGrayMode: false,
     colorWeakMode: false,
-    locale: 'zh-CN',
     isMobile: false,
+    locale: 'zh-CN',
+    name: 'cloud system',
   },
-  theme:{
+  theme: {
     builtinType: 'default',
     colorDestructive: 'hsl(348 100% 61%)',
     colorPrimary: 'hsl(212 100% 45%)',
@@ -18,7 +18,7 @@ const defaultPreferences: Preferences = {
     radius: '0.5',
     semiDarkHeader: false,
     semiDarkSidebar: false,
-  }
-}
+  },
+};
 
-export { defaultPreferences }
+export { defaultPreferences };

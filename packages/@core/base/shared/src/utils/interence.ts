@@ -23,7 +23,4 @@ function isMacOs(): boolean {
   return macRegex.test(navigator.userAgent);
 }
 
-export {
-  isWindow,
-  isMacOs,
-}
+export { isMacOs, isWindow };
