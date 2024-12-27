@@ -9,12 +9,18 @@ catalogs:
     '@changesets/git':
       specifier: ^3.0.2
       version: 3.0.2
+    '@clack/prompts':
+      specifier: ^0.8.2
+      version: 0.8.2
     '@manypkg/get-packages':
       specifier: ^2.2.2
       version: 2.2.2
     '@vueuse/core':
       specifier: ^12.0.0
       version: 12.2.0
+    cac:
+      specifier: ^6.7.14
+      version: 6.7.14
     chalk:
       specifier: ^5.3.0
       version: 5.4.1
@@ -71,6 +77,9 @@ importers:
       '@repo/tsconfig':
         specifier: workspace:*
         version: link:internal/tsconfig
+      '@repo/turbo-run':
+        specifier: workspace:*
+        version: link:scripts/turbo-run
       '@repo/vsh':
         specifier: workspace:*
         version: link:scripts/vsh
@@ -100,6 +109,28 @@ importers:
         version: 3.5.13(typescript@5.6.3)
       vue-tsc:
         specifier: ^2.1.10
+        version: 2.2.0(typescript@5.6.3)
+
+  apps/web-antd:
+    dependencies:
+      vue:
+        specifier: ^3.5.13
+        version: 3.5.13(typescript@5.6.3)
+    devDependencies:
+      '@vitejs/plugin-vue':
+        specifier: ^5.2.1
+        version: 5.2.1(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2))(vue@3.5.13(typescript@5.6.3))
+      '@vue/tsconfig':
+        specifier: ^0.7.0
+        version: 0.7.0(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))
+      typescript:
+        specifier: ~5.6.2
+        version: 5.6.3
+      vite:
+        specifier: ^6.0.5
+        version: 6.0.6(@types/node@22.10.2)(jiti@2.4.2)
+      vue-tsc:
+        specifier: ^2.2.0
         version: 2.2.0(typescript@5.6.3)
 
   internal/lint-configs/eslint-config:
@@ -270,6 +301,18 @@ importers:
       vue-router:
         specifier: 'catalog:'
         version: 4.5.0(vue@3.5.13(typescript@5.6.3))
+
+  scripts/turbo-run:
+    dependencies:
+      '@clack/prompts':
+        specifier: 'catalog:'
+        version: 0.8.2
+      '@repo/node-utils':
+        specifier: workspace:*
+        version: link:../../internal/node-utils
+      cac:
+        specifier: 'catalog:'
+        version: 6.7.14
 
   scripts/vsh:
     dependencies:
@@ -482,6 +525,12 @@ packages:
 
   '@changesets/write@0.3.2':
     resolution: {integrity: sha512-kDxDrPNpUgsjDbWBvUo27PzKX4gqeKOlhibaOXDJA6kuBisGqNHv/HwGJrAu8U/dSf8ZEFIeHIPtvSlZI1kULw==}
+
+  '@clack/core@0.3.5':
+    resolution: {integrity: sha512-5cfhQNH+1VQ2xLQlmzXMqUoiaH0lRBq9/CLW9lTyMbuKLC3+xEK01tHVvyut++mLOn5urSHmkm6I0Lg9MaJSTQ==}
+
+  '@clack/prompts@0.8.2':
+    resolution: {integrity: sha512-6b9Ab2UiZwJYA9iMyboYyW9yJvAO9V753ZhS+DHKEjZRKAxPPOb7MXXu84lsPFG+vZt6FRFniZ8rXi+zCIw4yQ==}
 
   '@es-joy/jsdoccomment@0.49.0':
     resolution: {integrity: sha512-xjZTSFgECpb9Ohuk5yMX5RhUEbfeQcuOp8IF60e+wyzWEF0M5xeSgqsfLtvPEX8BIyOX9saZqzuGPmZ8oWc+5Q==}
@@ -1183,6 +1232,13 @@ packages:
     resolution: {integrity: sha512-zORcwn4C3trOWiCqFQP1x6G3xTRyZ1LYydnj51cRnJ6hxBlr/cKPckk+PKPUw/fXmvfKTcw7bwY3w9izgx5jZw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
+  '@vitejs/plugin-vue@5.2.1':
+    resolution: {integrity: sha512-cxh314tzaWwOLqVes2gnnCtvBDcM1UMdn+iFR+UjAn411dPT3tOmqrJjbMd7koZpMAmBM/GqeV4n9ge7JSiJJQ==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      vite: ^5.0.0 || ^6.0.0
+      vue: ^3.5.13
+
   '@vitest/expect@2.1.8':
     resolution: {integrity: sha512-8ytZ/fFHq2g4PJVAtDX57mayemKgDR6X3Oa2Foro+EygiOJHUXhCqBAAKQYYajZpFoIfvBCF1j6R6IYRSIUFuw==}
 
@@ -1263,6 +1319,17 @@ packages:
 
   '@vue/shared@3.5.13':
     resolution: {integrity: sha512-/hnE/qP5ZoGpol0a5mDi45bOd7t3tjYJBjsgCsivow7D48cJeV5l05RD82lPqi7gRiphZM37rnhW1l6ZoCNNnQ==}
+
+  '@vue/tsconfig@0.7.0':
+    resolution: {integrity: sha512-ku2uNz5MaZ9IerPPUyOHzyjhXoX2kVJaVf7hL315DC17vS6IiZRmmCPfggNbU16QTvM80+uYYy3eYJB59WCtvg==}
+    peerDependencies:
+      typescript: 5.x
+      vue: ^3.5.13
+    peerDependenciesMeta:
+      typescript:
+        optional: true
+      vue:
+        optional: true
 
   '@vueuse/core@12.2.0':
     resolution: {integrity: sha512-jksyNu+5EGwggNkRWd6xX+8qBkYbmrwdFQMgCABsz+wq8bKF6w3soPFLB8vocFp3wFIzn0OYkSPM9JP+AFKwsg==}
@@ -3154,6 +3221,9 @@ packages:
     resolution: {integrity: sha512-bzyZ1e88w9O1iNJbKnOlvYTrWPDl46O1bG0D3XInv+9tkPrxrN8jUUTiFlDkkmKWgn1M6CfIA13SuGqOa9Korw==}
     engines: {node: '>=14'}
 
+  sisteransi@1.0.5:
+    resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
+
   slash@3.0.0:
     resolution: {integrity: sha512-g9Q1haeby36OSStwb4ntCGGGaKsaVSjQ68fBxoQcutl5fS1vuY18H3wSt3jFyFtrkx+Kz0V1G85A4MyAdDMi2Q==}
     engines: {node: '>=8'}
@@ -3938,6 +4008,17 @@ snapshots:
       human-id: 1.0.2
       prettier: 2.8.8
 
+  '@clack/core@0.3.5':
+    dependencies:
+      picocolors: 1.1.1
+      sisteransi: 1.0.5
+
+  '@clack/prompts@0.8.2':
+    dependencies:
+      '@clack/core': 0.3.5
+      picocolors: 1.1.1
+      sisteransi: 1.0.5
+
   '@es-joy/jsdoccomment@0.49.0':
     dependencies:
       comment-parser: 1.4.1
@@ -4490,6 +4571,11 @@ snapshots:
       '@typescript-eslint/types': 8.18.2
       eslint-visitor-keys: 4.2.0
 
+  '@vitejs/plugin-vue@5.2.1(vite@6.0.6(@types/node@22.10.2)(jiti@2.4.2))(vue@3.5.13(typescript@5.6.3))':
+    dependencies:
+      vite: 6.0.6(@types/node@22.10.2)(jiti@2.4.2)
+      vue: 3.5.13(typescript@5.6.3)
+
   '@vitest/expect@2.1.8':
     dependencies:
       '@vitest/spy': 2.1.8
@@ -4615,6 +4701,11 @@ snapshots:
       vue: 3.5.13(typescript@5.6.3)
 
   '@vue/shared@3.5.13': {}
+
+  '@vue/tsconfig@0.7.0(typescript@5.6.3)(vue@3.5.13(typescript@5.6.3))':
+    optionalDependencies:
+      typescript: 5.6.3
+      vue: 3.5.13(typescript@5.6.3)
 
   '@vueuse/core@12.2.0(typescript@5.6.3)':
     dependencies:
@@ -6509,6 +6600,8 @@ snapshots:
   siginfo@2.0.0: {}
 
   signal-exit@4.1.0: {}
+
+  sisteransi@1.0.5: {}
 
   slash@3.0.0: {}
 

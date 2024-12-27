@@ -3,7 +3,8 @@
   "private": true,
   "scripts": {
     "build": "turbo build",
-    "dev": "turbo dev",
+    "dev": "turbo-run dev",
+    "dev:antd": "pnpm -F @repo/web-antd run dev",
     "clean": "node ./scripts/clean.mjs",
     "changeset": "changeset",
     "version-packages": "changeset version",
@@ -15,7 +16,8 @@
     "publint": "vsh publint",
     "postinstall": "pnpm -r run stub --if-present",
     "preinstall": "npx only-allow pnpm",
-    "reinstall": "pnpm clean --del-lock && pnpm install"
+    "reinstall": "pnpm clean --del-lock && pnpm install",
+    "preview": "turbo-run preview"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.10",
@@ -23,6 +25,7 @@
     "@repo/prettier-config": "workspace:*",
     "@repo/tsconfig": "workspace:*",
     "@repo/vsh": "workspace:*",
+    "@repo/turbo-run": "workspace:*",
     "@types/node": "^22.10.1",
     "rimraf": "^6.0.1",
     "turbo": "^2.3.3",
