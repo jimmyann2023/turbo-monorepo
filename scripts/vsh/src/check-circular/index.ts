@@ -2,7 +2,7 @@ import type { CAC } from 'cac';
 
 import { extname } from 'node:path';
 
-// import { getStagedFiles } from '@repo/node-utils';
+import { getStagedFiles } from '@repo/node-utils';
 
 import { circularDepsDetect, printCircles } from 'circular-dependency-scanner';
 
@@ -33,7 +33,7 @@ async function checkCircular({ staged, verbose }: CommandOptions) {
   });
 
   if (staged) {
-    let files = <any>[]; // await getStagedFiles()
+    let files = await getStagedFiles();
 
     const allowedExtensions = new Set([
       '.cjs',
