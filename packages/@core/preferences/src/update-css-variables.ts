@@ -1,5 +1,8 @@
 import type { Preferences } from './types';
 
+import { generatorColorVariables } from '@repo-core/shared/color';
+import { updateCSSVariables as executeUpdateCSSVariables } from '@repo-core/shared/utils';
+
 import { BUILT_IN_THEME_PRESETS } from './constants';
 
 /**
@@ -70,8 +73,35 @@ function updateCSSVariables(preferences: Preferences) {
  */
 function updateMainColorVariables(preference: Preferences) {
   if (!preference.theme) {
-    // TODO: 待完善
+    return;
   }
+  const { colorDestructive, colorPrimary, colorSuccess, colorWarning } =
+    preference.theme;
+
+  const colorVariables = generatorColorVariables([
+    { color: colorPrimary, name: 'primary' },
+    { alias: 'warning', color: colorWarning, name: 'yellow' },
+    { alias: 'success', color: colorSuccess, name: 'green' },
+    { alias: 'destructive', color: colorDestructive, name: 'red' },
+  ]);
+
+  // 要设置的 CSS 变量映射
+  const colorMappings = {
+    '--green-500': '--success',
+    '--primary-500': '--primary',
+    '--red-500': '--destructive',
+    '--yellow-500': '--warning',
+  };
+
+  // 统一处理颜色变量的更新
+  Object.entries(colorMappings).forEach(([sourceVar, targetVar]) => {
+    const colorValue = colorVariables[sourceVar];
+    if (colorValue) {
+      document.documentElement.style.setProperty(targetVar, colorValue);
+    }
+  });
+
+  executeUpdateCSSVariables(colorVariables);
 }
 
 function isDarkTheme(theme: string) {

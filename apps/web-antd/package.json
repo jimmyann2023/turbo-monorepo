@@ -1,6 +1,6 @@
 {
   "name": "@repo/web-antd",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -14,8 +14,11 @@
     "#/*": "./src/*"
   },
   "dependencies": {
+    "@repo-core/shared": "workspace:*",
     "@repo/preferences": "workspace:*",
+    "@repo/styles": "workspace:*",
     "@repo/types": "workspace:*",
+    "ant-design-vue": "catalog:",
     "dayjs": "catalog:",
     "vue": "catalog:",
     "vue-router": "catalog:"

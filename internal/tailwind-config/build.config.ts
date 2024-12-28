@@ -3,5 +3,8 @@ import { defineBuildConfig } from 'unbuild';
 export default defineBuildConfig({
   clean: true,
   declaration: true,
-  entries: ['src/cache/index', 'src/color/index', 'src/utils/index'],
+  entries: ['src/index', './src/postcss.config'],
+  rollup: {
+    emitCJS: true,
+  },
 });

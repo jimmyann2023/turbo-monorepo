@@ -4,6 +4,7 @@ const defaultPreferences: Preferences = {
   app: {
     colorGrayMode: false,
     colorWeakMode: false,
+    compact: false,
     isMobile: false,
     locale: 'zh-CN',
     name: 'cloud system',

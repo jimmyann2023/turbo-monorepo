@@ -1,9 +1,9 @@
 import type { Linter } from 'eslint';
 
 const restrictedImportIgnores = [
-  '**/vite.configs.mts',
-  '**/tailwind.configs.mjs',
-  '**/postcss.configs.mjs',
+  '**/vite.config.mts',
+  '**/tailwind.config.mjs',
+  '**/postcss.config.mjs',
 ];
 
 const customConfig: Linter.Config[] = [
@@ -33,6 +33,7 @@ const customConfig: Linter.Config[] = [
     files: ['apps/**/**'],
     ignores: restrictedImportIgnores,
     rules: {
+      'no-console': 'off', // TODO:暂时放开打印
       'no-restricted-imports': [
         'error',
         {

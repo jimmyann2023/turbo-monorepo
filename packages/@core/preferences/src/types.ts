@@ -11,6 +11,8 @@ interface AppPreferences {
   colorGrayMode: boolean;
   /** 是否开启色弱模式 */
   colorWeakMode: boolean;
+  /** 是否开启紧凑模式 */
+  compact: boolean;
   /** 是否移动端 */
   isMobile: boolean;
   /** 支持的语言 */

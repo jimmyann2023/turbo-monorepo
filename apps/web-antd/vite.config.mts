@@ -1,4 +1,3 @@
-// eslint-disable-next-line n/no-extraneous-import
 import { defineConfig } from '@repo/vite-config';
 
 export default defineConfig(async () => {

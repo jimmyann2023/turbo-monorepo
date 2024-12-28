@@ -1,7 +1,12 @@
-import type { UserConfig } from 'vite';
+import type { SassPreprocessorOptions, UserConfig } from 'vite';
 
 import type { DefineApplicationOptions } from '../typing';
 
+import path, { relative } from 'node:path';
+
+import { findMonorepoRoot } from '@repo/node-utils';
+
+import { NodePackageImporter } from 'sass';
 import { defineConfig, loadEnv, mergeConfig } from 'vite';
 
 import { defaultImportmapOptions, getDefaultPwaOptions } from '../options';
@@ -28,7 +33,7 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
       env,
       extraAppConfig: true,
       html: true,
-      i18n: true,
+      // i18n: true,
       importmapOptions: defaultImportmapOptions,
       injectAppLoading: true,
       injectMetadata: true,
@@ -48,7 +53,7 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
       ...application,
     });
 
-    // const { injectGlobalScss = true } = application;
+    const { injectGlobalScss = true } = application;
 
     const applicationConfig: UserConfig = {
       base,
@@ -62,7 +67,7 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
         },
         target: 'es2015',
       },
-      // css: createCssOptions(injectGlobalScss),
+      css: createCssOptions(injectGlobalScss),
       esbuild: {
         drop: isBuild
           ? [
@@ -95,26 +100,26 @@ function defineApplicationConfig(userConfigPromise?: DefineApplicationOptions) {
   });
 }
 
-// function createCssOptions(injectGlobalScss = true) {
-//   const root = findMonorepoRoot();
-//   return {
-//     preprocessorOptions: injectGlobalScss
-//       ? {
-//           scss: {
-//             additionalData: (content: string, filepath: string) => {
-//               const relativePath = relative(root, filepath);
-//               // apps下的包注入全局样式
-//               if (relativePath.startsWith(`apps${path.sep}`)) {
-//                 return `@use "@repo/styles/global" as *;\n${content}`;
-//               }
-//               return content;
-//             },
-//             api: 'modern',
-//             importers: [new NodePackageImporter()],
-//           },
-//         }
-//       : {},
-//   };
-// }
+function createCssOptions(injectGlobalScss = true) {
+  const root = findMonorepoRoot();
+  return {
+    preprocessorOptions: injectGlobalScss
+      ? {
+          scss: {
+            additionalData: (content: string, filepath: string) => {
+              const relativePath = relative(root, filepath);
+              // apps 下的包注入全局样式
+              if (relativePath.startsWith(`apps${path.sep}`)) {
+                return `@use "@repo/styles/global" as *;\n${content}`;
+              }
+              return content;
+            },
+            api: 'modern',
+            importers: [new NodePackageImporter()],
+          } as SassPreprocessorOptions,
+        }
+      : {},
+  };
+}
 
 export { defineApplicationConfig };
