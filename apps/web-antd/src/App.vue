@@ -22,7 +22,6 @@ const tokenTheme = computed(() => {
   if (preferences.app.compact) {
     algorithm.push(theme.compactAlgorithm);
   }
-  console.log(tokens);
 
   return {
     algorithm,
